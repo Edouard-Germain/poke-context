@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Box, Text, UnorderedList, ListItem, Button,FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/react"
 import { UserContext } from "../context/UserContextProvider"
 import { useContext } from "react"
+import ToLog from '../Component/ToLog'
 
 const Home = () => {
   const { setIsLogged, isLogged } = useContext(UserContext)
@@ -32,7 +33,7 @@ const Home = () => {
   }
 
   if (!isLogged){
-    return <p>Connect toi gros batard</p>
+    return <ToLog/>
   }
 
   if (!pokemon) {

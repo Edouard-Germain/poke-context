@@ -1,4 +1,5 @@
 import { useFormik } from "formik"
+import { useNavigate } from "react-router"
 import * as Yup from "yup"
 import { Input, Button } from "@chakra-ui/react"
 import { FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/form-control"
@@ -8,6 +9,7 @@ import { useContext, useState } from "react"
 const Login = () => {
   const { setIsLogged, isLogged } = useContext(UserContext)
   console.log('is logged => ', isLogged)
+  let navigate = useNavigate()
 
   const onClick = () =>{
     setIsLogged(false)
@@ -21,6 +23,8 @@ const Login = () => {
     onSubmit: values => {
       console.log(values)
       setIsLogged(true)
+     navigate('/')
+
     },
     validationSchema: Yup.object().shape({
       username: Yup.string()
