@@ -6,17 +6,16 @@ import Home from './Pages/Home'
 import Login from './Pages/Login'
 import NotFound from './Pages/404';
 import { ChakraProvider } from "@chakra-ui/react"
-
+import { createContext} from 'react'
+import { UserContextProvider } from './context/UserContextProvider'
 
 function App() {
   
-
   return (
+    <UserContextProvider>
     <ChakraProvider>
     <BrowserRouter>
-
     <Nav />
-
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
@@ -24,6 +23,8 @@ function App() {
     </Switch>
   </BrowserRouter>
   </ChakraProvider>
+
+  </UserContextProvider>
 
   );
 }
